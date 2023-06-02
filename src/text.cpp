@@ -8,6 +8,7 @@ Text::Text(const std::string& str) {
     std::stringstream s(str);
     s >> fileId;
     std::ifstream file(str);
+    if (!file.is_open()) {throw "can not open file";}
     std::string tmp;
     std::string word;
     while (std::getline(file, tmp)) {
