@@ -4,14 +4,14 @@
 #include "text.h"
 #include <unordered_map>
 #include <vector>
-
+#include "fileReader.h"
 class DataBase
 {
 private:
     std::unordered_map<std::string, std::vector<int>> dataBase;
     std::string DBFileName;
 public:
-    DataBase(std::initializer_list<Text>, const std::string& fileName);
+    DataBase(std::initializer_list<FileReader>, const std::string& fileName);
     ~DataBase();
 };
 

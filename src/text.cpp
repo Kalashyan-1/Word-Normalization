@@ -1,10 +1,13 @@
 #include "text.h"
 
-int Text::getfileId() const {return fileId;}
+Text::Text(const std::string& str) { 
+    convert(str);
+}
 
-std::unordered_set<Word, WordHash> Text::getText() const {return text;}
-
-Text::Text(const std::string& str) {
+void Text::convert(const std::string& str) {
+    std::string check(str.end() - 4, str.end());
+    std::cout << check;
+    if (check != ".txt") {throw std::invalid_argument("Given file must be in .txt format");}
     std::stringstream s(str);
     s >> fileId;
     std::ifstream file(str);

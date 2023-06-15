@@ -1,22 +1,15 @@
 #ifndef TEXT_
 #define TEXT_
 
-#include <unordered_set>
-#include <sstream>
-#include "word.h"
+#include "textConvertor.h"
 
-class Text
+class Text : public TextConvertor
 {
 public:
     Text(const std::string& fileName);
     Text() = default;
-    ~Text() = default;
-    std::unordered_set<Word, WordHash> getText() const;
-    int getfileId() const;
-private:
-    std::unordered_set<Word, WordHash> text;
-    int fileId;
 
+    void convert(const std::string& str) override;
 };
 
 #endif //TEXT_

@@ -1,11 +1,11 @@
 #include "dataBase.h"
 
-DataBase::DataBase(std::initializer_list<Text> texts, const std::string& fileName) 
+DataBase::DataBase(std::initializer_list<FileReader> texts, const std::string& fileName) 
     : DBFileName {fileName}
 {
     for (auto it = texts.begin(); it != texts.end(); ++it) {
-        for (auto text : it->getText()) {
-            dataBase[text.getWord()].push_back(it->getfileId());
+        for (auto text : it->getCnvertor()->getText()) {
+            dataBase[text.getWord()].push_back(it->getCnvertor()->getfileId());
         }
     }
     std::ofstream file(DBFileName);
